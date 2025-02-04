@@ -21,7 +21,7 @@ jobs:
           mode: "PR"
           configurationJson: |
             {
-              "template": "Release #{{CHANGELOG}}",
+              "template": "#{{CHANGELOG}}",
               "pr_template": "- #{{TITLE}} - PR: ##{{NUMBER}}",
               "categories": [
                 {
