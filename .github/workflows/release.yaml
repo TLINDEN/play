@@ -21,15 +21,24 @@ jobs:
           mode: "PR"
           configurationJson: |
             {
-              "template": "#{{CHANGELOG}}",
+              "template": "Release #{{CHANGELOG}}",
+              "pr_template": "- #{{TITLE}} - PR: ##{{NUMBER}}",
               "categories": [
                 {
                     "title": "## Feature",
-                    "labels": ["feat", "feature"]
+                    "labels": [add", "feature"]
                 },
                 {
                     "title": "## Fix",
-                    "labels": ["fix", "bug"]
+                    "labels": ["fix", "bug", "revert"]
+                },
+                {
+                    "title": "## Documentation",
+                    "labels": ["doc"]
+                },
+                {
+                    "title": "## Refactoring",
+                    "labels": [refactor"]
                 },
                 {
                     "title": "## Other",
@@ -38,7 +47,7 @@ jobs:
               ],
               "label_extractor": [
                 {
-                  "pattern": "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\\([\\w\\-\\.]+\\))?(!)?: ([\\w ])+([\\s\\S]*)",
+                  "pattern": "^(bug|fix|doc|add|feature|refactor|revert)"
                   "target": "$1"
                 }
               ]
@@ -50,3 +59,4 @@ jobs:
           body: ${{steps.github_release.outputs.changelog}}
 
 
+# comment
