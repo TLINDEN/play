@@ -19,39 +19,39 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           mode: "PR"
-            configurationJson: |
-              {
-                "template": "Release #{{CHANGELOG}}",
-                "pr_template": "- #{{TITLE}} - PR: ##{{NUMBER}}",
-                "categories": [
-                  {
-                      "title": "## Feature",
-                      "labels": ["add", "feature"]
-                  },
-                  {
-                      "title": "## Fix",
-                      "labels": ["fix", "bug", "revert"]
-                  },
-                  {
-                      "title": "## Documentation",
-                      "labels": ["doc"]
-                  },
-                  {
-                      "title": "## Refactoring",
-                      "labels": ["refactor"]
-                  },
-                  {
-                      "title": "## Other",
-                      "labels": []
-                  }
-                ],
-                "label_extractor": [
-                  {
-                    "pattern": "^(bug|fix|doc|add|feature|refactor|revert)"
-                    "target": "$1"
-                  }
-                ]
-              }
+          configurationJson: |
+            {
+              "template": "Release #{{CHANGELOG}}",
+              "pr_template": "- #{{TITLE}} - PR: ##{{NUMBER}}",
+              "categories": [
+                {
+                    "title": "## Feature",
+                    "labels": ["add", "feature"]
+                },
+                {
+                    "title": "## Fix",
+                    "labels": ["fix", "bug", "revert"]
+                },
+                {
+                    "title": "## Documentation",
+                    "labels": ["doc"]
+                },
+                {
+                    "title": "## Refactoring",
+                    "labels": ["refactor"]
+                },
+                {
+                    "title": "## Other",
+                    "labels": []
+                }
+              ],
+              "label_extractor": [
+                {
+                  "pattern": "^(bug|fix|doc|add|feature|refactor|revert)"
+                  "target": "$1"
+                }
+              ]
+            }
 
       - name: Create Release
         uses: mikepenz/action-gh-release@v0.2.0-a03
