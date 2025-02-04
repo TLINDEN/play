@@ -1,0 +1,9 @@
+(defn ignoreduplicate [data]
+      (println data)
+      false)
+
+(defn ignoreraw [data]
+      true)
+
+(addhook %filterhook %ignoreduplicate)
+(addhook %filterhook %ignoreraw)
