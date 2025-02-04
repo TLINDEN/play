@@ -47,7 +47,7 @@ jobs:
               ],
               "label_extractor": [
                 {
-                  "pattern": "^(bug|fix|doc|add|feature|refactor|revert)"
+                  "pattern": "^(bug|fix|doc|add|feature|refactor|revert)",
                   "target": "$1"
                 }
               ]
