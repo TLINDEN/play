@@ -38,7 +38,7 @@ jobs:
                 },
                 {
                     "title": "## Refactoring",
-                    "labels": [refactor"]
+                    "labels": ["refactor"]
                 },
                 {
                     "title": "## Other",
