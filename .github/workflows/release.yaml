@@ -1,0 +1,24 @@
+name: build-and-test
+on:
+  push:
+
+jobs:
+  release:
+    name: Build Release Assets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          mode: "HYBRID"
+
+      - name: Create Release
+        uses: mikepenz/action-gh-release@v0.2.0-a03
+        with:
+          body: ${{steps.github_release.outputs.changelog}}
