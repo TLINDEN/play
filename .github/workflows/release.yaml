@@ -16,10 +16,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          mode: "HYBRID"
+          mode: "PR"
           configurationJson: |
             {
-              "commit_template": "#{{TITLE}} by #{{AUTHOR_NAME}}: #{{BODY}}",
               "template": "#{{CHANGELOG}}",
               "categories": [
                 {
