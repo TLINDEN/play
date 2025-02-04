@@ -26,7 +26,7 @@ jobs:
               "categories": [
                 {
                     "title": "## Feature",
-                    "labels": [add", "feature"]
+                    "labels": ["add", "feature"]
                 },
                 {
                     "title": "## Fix",
