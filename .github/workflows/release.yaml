@@ -50,5 +50,3 @@ jobs:
           body: ${{steps.github_release.outputs.changelog}}
 
 
-# nix
-# haha
