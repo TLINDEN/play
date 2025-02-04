@@ -19,6 +19,7 @@ jobs:
           mode: "HYBRID"
           configurationJson: |
             {
+              "commit_template": "#{{TITLE}} by #{{AUTHOR_NAME}}: #{{BODY}}",
               "template": "#{{CHANGELOG}}",
               "categories": [
                 {
