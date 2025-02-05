@@ -2,7 +2,7 @@ name: build-and-test
 on:
   push:
     tags:
-      - "*"
+      - "v*.*.*"
 
 jobs:
   release:
@@ -21,28 +21,28 @@ jobs:
           mode: "PR"
           configurationJson: |
             {
-              "template": "#{{CHANGELOG}}",
-              "pr_template": "- #{{TITLE}} (##{{NUMBER}})",
+              "template": "#{{CHANGELOG}}\n**Full Changelog**: https://github.com/tlinden/play/compare/#{{FROM_TAG}}...#{{TO_TAG}}\n#{{RELEASE_DIFF}}\n#{{CONTRIBUTORS}}\n",
+              "pr_template": "- #{{TITLE}} (##{{NUMBER}}) by #{{AUTHOR}}\n#{{BODY}}",
               "empty_template": "- no changes",
               "categories": [
                 {
-                    "title": "## Feature",
+                    "title": "## New Features",
                     "labels": ["add", "feature"]
                 },
                 {
-                    "title": "## Fix",
+                    "title": "## Bug Fixes",
                     "labels": ["fix", "bug", "revert"]
                 },
                 {
-                    "title": "## Documentation",
+                    "title": "## Documentation Enhancements",
                     "labels": ["doc"]
                 },
                 {
-                    "title": "## Refactoring",
+                    "title": "## Refactoring Efforts",
                     "labels": ["refactor"]
                 },
                 {
-                    "title": "## Other",
+                    "title": "## Miscelanneus Changes",
                     "labels": []
                 }
               ],
@@ -63,7 +63,7 @@ jobs:
             }
 
       - name: Create Release
-        uses: mikepenz/action-gh-release@v0.2.0-a03
+        uses: softprops/action-gh-release@v2
         with:
           body: ${{steps.github_release.outputs.changelog}}
 
