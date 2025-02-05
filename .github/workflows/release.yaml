@@ -21,7 +21,7 @@ jobs:
           mode: "PR"
           configurationJson: |
             {
-              "template": "#{{CHANGELOG}}\n\n**Full Changelog**: #{{RELEASE_DIFF}}\n\nContributors: #{{CONTRIBUTORS}}\n",
+              "template": "#{{CHANGELOG}}\n\n**Full Changelog**: #{{RELEASE_DIFF}}",
               "pr_template": "- #{{TITLE}} (##{{NUMBER}}) by #{{AUTHOR}}\n#{{BODY}}",
               "empty_template": "- no changes",
               "categories": [
@@ -42,7 +42,7 @@ jobs:
                     "labels": ["refactor"]
                 },
                 {
-                    "title": "## Miscelanneus Changes",
+                    "title": "## Miscellaneus Changes",
                     "labels": []
                 }
               ],
